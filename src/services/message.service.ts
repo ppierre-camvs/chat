@@ -25,10 +25,15 @@ export class MessageService {
         this.allMessages.push(new Message("3", "pseudo3", "3:00:00", "contenu3"));
     }
 
+   /*
+      C'est dans cette fonction qu'on ira se connecter à firebase
+   */
     public getAllMessages(): Observable<Array<Message>> {
+       /* On simule ici un observable qui notifie toute les secondes et se répère à l'inifi*/
         return of(this.allMessages).pipe(delay(1000)).pipe(repeat());;
     }
 
+   /* Idem ici pour le moment on simule, ensuite on postera le message sur firebase */
     public addMessage(msg: Message) {
         this.allMessages.push(msg);
     }
